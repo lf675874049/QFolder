@@ -10,7 +10,13 @@ public:
     LifeComplex(
             float vLife = 0, float vLifeRegen = 0, float vLeech = 0,
             float vLifeIPL = 0, float vLifeRegenIPL = 0, float vLeechIPL = 0);
+    LifeComplex(LifeComplex *complex);
+
     ~LifeComplex();
+
+    bool initWithComplex(LifeComplex *complex);
+    bool initWithArgs( float vLife = 0, float vLifeRegen = 0, float vLeech = 0,
+                  float vLifeIPL = 0, float vLifeRegenIPL = 0, float vLeechIPL = 0);
 
     float life;
     float lifeRegen;
@@ -27,7 +33,13 @@ public:
     ManaComplex(
             float vMana = 0, float vManaRegen = 0, float vImperius = 0,
             float vManaIPL = 0, float vManaRegenIPL = 0, float vImperiusIPL = 0);
+    ManaComplex(ManaComplex *complex);
+
     ~ManaComplex();
+
+    bool initWithComplex(ManaComplex* complex);
+    bool initWithArgs( float vMana = 0, float vManaRegen = 0, float vImperius = 0,
+                  float vManaIPL = 0, float vManaRegenIPL = 0, float vImperiusIPL = 0);
 
     float mana;
     float manaRegen;
@@ -44,7 +56,13 @@ public:
     PropertiesComplex(
             float vStrength = 0, float vDexterity = 0, float vIntelligence = 0, float vVitality = 0,
             float vStrIPL = 0, float vDexIPL = 0, float vIntIPL = 0, float vVitIPL = 0);
+    PropertiesComplex(PropertiesComplex *complex);
+
     ~PropertiesComplex();
+
+    bool initWithComplex(PropertiesComplex* complex);
+    bool initWithArgs( float vStrength = 0, float vDexterity = 0, float vIntelligence = 0, float vVitality = 0,
+                  float vStrIPL = 0, float vDexIPL = 0, float vIntIPL = 0, float vVitIPL = 0);
 
     float strength;
     float dexterity;
@@ -61,6 +79,8 @@ class UnitModel
 {
 public:
     UnitModel();
+    UnitModel(UnitModel* model);
+
     ~UnitModel();
 
 private:

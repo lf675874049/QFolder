@@ -1,15 +1,14 @@
 #include "uniteditor.h"
 #include "ui_uniteditor.h"
 
-UnitEditor::UnitEditor(QWidget *parent) :
+UnitEditor::UnitEditor(EditorDB *editorDB, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::UnitEditor)
 {
     ui->setupUi(this);
+    this->editorDB = editorDB;
 
-//    QVBoxLayout *mainLayout = new QVBoxLayout;
-//    mainLayout->addWidget(ui->formLayoutWidget);
-//    setLayout(mainLayout);
+    // ezzzz
 }
 
 UnitEditor::~UnitEditor()

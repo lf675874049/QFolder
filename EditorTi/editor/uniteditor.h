@@ -2,6 +2,7 @@
 #define UNITEDITOR_H
 
 #include <QMainWindow>
+#include "../helper/editordb.h"
 
 namespace Ui {
 class UnitEditor;
@@ -12,11 +13,12 @@ class UnitEditor : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit UnitEditor(QWidget *parent = 0);
+    explicit UnitEditor(EditorDB *editorDB, QWidget *parent = 0);
     ~UnitEditor();
 
 private:
     Ui::UnitEditor *ui;
+    EditorDB *editorDB;
 
     /*
     // 编辑区使能, isNew == true 时，右侧填充初始值
