@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     splashdialog.cpp \
     editor/uniteditor.cpp \
     helper/editordb.cpp \
-    model/unitmodel.cpp
+    model/unitmodel.cpp \
+    model/unitmodel_extend.cpp
 
 HEADERS  += editorwindow.h \
     subwindow.h \

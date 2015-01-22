@@ -14,12 +14,12 @@ class SplashDialog : public QDialog
 public:
     explicit SplashDialog(QString title = QString("The Splash."), QWidget *parent = 0);
     ~SplashDialog();
+    void splashFinish();
+    void message(QString msg);
 
 private:
     Ui::SplashDialog *ui;
 private slots:
-    void splashFinish();
-    void message(QString msg);
 };
 
 #endif // SPLASHDIALOG_H

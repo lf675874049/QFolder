@@ -34,6 +34,39 @@ UnitModel::UnitModel()
     this->properties = new PropertiesComplex();
 }
 
+UnitModel::UnitModel(UnitModel* model)
+{
+    this->_db_id = model->id();
+
+    // .str values.
+
+    this->scaling = model->scaling;
+
+    this->tint_r = model->tint_r;
+    this->tint_g = model->tint_g;
+    this->tint_b = model->tint_b;
+
+    this->collision_x = model->collision_x;
+    this->collision_y = model->collision_y;
+    this->collision_w = model->collision_w;
+    this->collision_h = model->collision_h;
+
+    this->pathing_x = model->pathing_x;
+    this->pathing_y = model->pathing_y;
+
+    this->selection_radius = model->selection_radius;
+    this->labelOffset = model->labelOffset;
+
+    this->cost = model->cost;
+    this->product = model->product;
+
+    this->unitClassList = QStringList();
+
+    this->life = new LifeComplex(model->life);
+    this->mana = new ManaComplex(model->mana);
+    this->properties = new PropertiesComplex(model->properties);
+}
+
 UnitModel::~UnitModel()
 {
     delete this->life;
@@ -158,55 +191,6 @@ bool UnitModel::setProductByString(QString str) {
 
 
 
-LifeComplex::LifeComplex(
-        float vLife, float vLifeRegen, float vLeech,
-        float vLifeIPL, float vLifeRegenIPL, float vLeechIPL) {
-    life = vLife;
-    lifeRegen = vLifeRegen;
-    leech = vLeech;
-
-    lifeIncreasePerLevel = vLifeIPL;
-    lifeRegenIncreasePerLevel = vLifeRegenIPL;
-    leechIncreasePerLevel = vLeechIPL;
-}
-
-LifeComplex::~LifeComplex() {
-
-}
-
-ManaComplex::ManaComplex(
-        float vMana, float vManaRegen, float vImperius,
-        float vManaIPL, float vManaRegenIPL, float vImperiusIPL) {
-    mana = vMana;
-    manaRegen = vManaRegen;
-    imperius = vImperius;
-
-    manaIncreasePerLevel = vManaIPL;
-    manaRegenIncreasePerLevel = vManaRegenIPL;
-    imperiusIncreasePerLevel = vImperiusIPL;
-}
-
-ManaComplex::~ManaComplex() {
-
-}
-
-PropertiesComplex::PropertiesComplex(
-        float vStrength, float vDexterity, float vIntelligence, float vVitality,
-        float vStrIPL, float vDexIPL, float vIntIPL, float vVitIPL) {
-    strength = vStrength;
-    dexterity = vDexterity;
-    intelligence = vIntelligence;
-    vitality = vVitality;
-
-    strengthIncreasePerLevel = vStrIPL;
-    dexterityIncreasePerLevel = vDexIPL;
-    intelligenceIncreasePerLevel = vIntIPL;
-    vitalityIncreasePerLevel = vVitIPL;
-}
-
-PropertiesComplex::~PropertiesComplex() {
-
-}
 
 
 

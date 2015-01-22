@@ -3,7 +3,11 @@
 
 #include <QMainWindow>
 #include "subwindow.h"
+
+#include "helper/editordb.h"
 #include "editor/uniteditor.h"
+
+#include <QThread>
 
 namespace Ui {
 class EditorWindow;
@@ -18,16 +22,19 @@ public:
     ~EditorWindow();
 
     QString editorName() { return "Ti Editor QT"; }
-
+    QString dbName() { return "Ti.db"; }
 private:
+    // M
+    EditorDB *editorDB;
+
+    // V
     Ui::EditorWindow *ui;
-    UnitEditor *_unit_editor;
+    UnitEditor *unitEditor;
 
     void initEditor();
+    void configUI();
 private slots:
-    void openSubDialog();
-    void openSplash(bool only);
-
+    void openSplash();
     void openUnitEditorWindow();
 };
 

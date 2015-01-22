@@ -12,17 +12,15 @@
 class EditorSimpleIndex
 {
 public:
-    // 分组
+    // grouped ..
     QString editorClass;
 
-    // 索引凭据
+    // index with ..
     QString editorID;
     QString editorName;
 
-    // 展示
+    // display with ..
     QString interfaceIcon;
-
-    // check.
     QString lastUpdatedString;
 };
 
@@ -32,7 +30,7 @@ public:
     EditorDB(QString dbName);
     ~EditorDB();
 
-    // 数据库操作
+    // db function.
     bool connect();
     bool transaction();
     bool commit();
@@ -43,8 +41,8 @@ public:
      *      UnitModel ADUS
      * ########################
      */
-    bool addUnit(UnitModel *unit);        // 增加 / 更新数据
-    bool removeUnit(QString editorID);    // 删除数据
+    bool addUnit(UnitModel *unit);        // add / update data.
+    bool removeUnit(QString editorID);    // del data.
 
     UnitModel*                      buildUnitModelByEditorID(QString editorID);            // 从数据库中获得角色信息
     QVector<EditorSimpleIndex*>*    buildUnitModelIndex();
@@ -52,12 +50,12 @@ public:
 
     /*
      * ########################
-     *           通用
+     *           common
      * ########################
      */
 
     QVector<EditorSimpleIndex*>*    buildSubListByKeyword(QString &keyword, QVector<EditorSimpleIndex*> &majorList);     // 从目标分组中按关键字获取子分组
-    QString name(QString dbname = nullptr);         // 数据库(连接)名称
+    QString name(QString dbname = nullptr);         // database's name
 
     // getters.
     QString nameDB() { return name(); }
@@ -66,7 +64,7 @@ public:
     QString nameItemModelTable() { return QString("ItemModel"); }
 
     // ...
-    // 其它
+    // others.
     // ...
 
 private:
